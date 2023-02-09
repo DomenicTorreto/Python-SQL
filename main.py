@@ -68,29 +68,29 @@ def change_user_info(cursor, user_id):
             print('Введите команту для изменения данных о клиента:\n'
                   '1 - изменить имя, 2 - изменить фамилию, 3 - изменить email, 4 - изменить телефон\n'
                   'q - для выхода')
-            comand = (input('Введите команду: '))
-            if comand == '1':
+            command = (input('Введите команду: '))
+            if command == '1':
                 new_name = str(input(f'Введите новое имя: '))
                 cursor.execute('''
                     UPDATE user_info SET name=%s WHERE user_id=%s;
                     ''', (new_name, user_id))
-            elif comand == '2':
+            elif command == '2':
                 new_surname = str(input(f'Введите новую фамилию: '))
                 cursor.execute('''
                     UPDATE user_info SET surname=%s WHERE user_id=%s;
                     ''', (new_surname, user_id))
-            elif comand == '3':
+            elif command == '3':
                 new_email = str(input(f'Введите новый email: '))
                 cursor.execute('''
                     UPDATE user_info SET email=%s WHERE user_id=%s;
                     ''', (new_email, user_id))
-            elif comand == '4':
+            elif command == '4':
                 old_number = str(input(f'Введите старый телефон: '))
                 new_number = str(input(f'Введите новый телефон: '))
                 cursor.execute('''
                     UPDATE phone_user SET number=%s WHERE number=%s;
                     ''', (new_number, old_number))
-            elif comand == 'q':
+            elif command == 'q':
                 break
             else:
                 print('Неверная команда!')
